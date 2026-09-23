@@ -1,0 +1,1199 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #08090c;
+    color: #ffffff;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+    --gold: #ffb719;
+    --gold-light: #ffd15c;
+    --purple: #6f35ff;
+    --dark: #08090c;
+    --dark-2: #101116;
+    --dark-3: #17181f;
+    --gray: #a7a9b3;
+    --white: #ffffff;
+    --border: rgba(255, 183, 25, 0.35);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(8, 9, 12, 0.92);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-link {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #bdbec5;
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--gold);
+}
+
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,9,12,0.95),
+            rgba(8,9,12,0.65),
+            rgba(8,9,12,0.25)
+        ),
+        url("images/lebron-lakers-champion.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 70% 50%,
+            rgba(111,53,255,0.18),
+            transparent 35%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 1200px;
+
+    margin: auto;
+    padding-top: 70px;
+}
+
+.hero-label,
+.small-title {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    max-width: 850px;
+
+    margin-top: 20px;
+
+    font-size: clamp(55px, 9vw, 125px);
+    line-height: 0.9;
+    font-weight: 900;
+    letter-spacing: -6px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--gold);
+}
+
+.hero p {
+    max-width: 650px;
+
+    margin-top: 30px;
+
+    color: #c5c6ce;
+    font-size: 17px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+    padding: 0 25px;
+
+    border-radius: 4px;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn.primary {
+    background: var(--gold);
+    color: #08090c;
+}
+
+.btn.primary:hover {
+    transform: translateY(-3px);
+    background: var(--gold-light);
+}
+
+.btn.secondary {
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+}
+
+.btn.secondary:hover {
+    background: white;
+    color: #08090c;
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.stat-box {
+    padding: 35px 15px;
+    text-align: center;
+
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.stat-box:last-child {
+    border-right: none;
+}
+
+.stat-box strong {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 38px;
+    font-weight: 900;
+}
+
+.stat-box span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 110px 0;
+}
+
+.section-title {
+    margin-bottom: 55px;
+}
+
+.section-title.center {
+    text-align: center;
+}
+
+.section-title span {
+    color: var(--gold);
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    margin-top: 10px;
+
+    font-size: clamp(35px, 5vw, 65px);
+    line-height: 1;
+
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.section-title p {
+    margin-top: 15px;
+    color: var(--gray);
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.intro-image {
+    height: 500px;
+    overflow: hidden;
+}
+
+.intro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.intro-text h3 {
+    margin: 15px 0;
+
+    font-size: 38px;
+    line-height: 1.1;
+}
+
+.intro-text p {
+    margin-top: 15px;
+    color: var(--gray);
+}
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background: var(--gold);
+
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 90px;
+}
+
+.timeline-year {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+
+    width: 85px;
+    height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--gold);
+    color: #08090c;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    z-index: 3;
+}
+
+.timeline-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 355px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    background: var(--dark-2);
+
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.timeline-card.reverse {
+    direction: rtl;
+}
+
+.timeline-card.reverse .timeline-content {
+    direction: ltr;
+}
+
+.timeline-image {
+    position: relative;
+
+    min-height: 355px;
+
+    overflow: hidden;
+
+    background: #12588d;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.timeline-card:hover .timeline-image img {
+    transform: scale(1.05);
+}
+
+.image-label {
+    position: absolute;
+
+    left: 20px;
+    bottom: 20px;
+
+    padding: 8px 13px;
+
+    background: rgba(0,0,0,0.75);
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.number-badge {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid white;
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.35);
+
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.timeline-content {
+    padding: 55px;
+}
+
+.team-label {
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    background: var(--purple);
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.timeline-content h3 {
+    margin-top: 20px;
+
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.timeline-content p {
+    margin-top: 15px;
+
+    color: var(--gray);
+}
+
+.timeline-content ul {
+    margin-top: 20px;
+
+    list-style: none;
+}
+
+.timeline-content li {
+    margin: 7px 0;
+
+    color: #ddd;
+}
+
+.timeline-content li::before {
+    content: "✓";
+
+    margin-right: 10px;
+
+    color: var(--gold);
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   ACHIEVEMENTS
+===================================================== */
+
+.achievements {
+    max-width: 1300px;
+}
+
+.achievement-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.achievement-card {
+    overflow: hidden;
+
+    background: var(--dark-2);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+.achievement-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--gold);
+}
+
+.achievement-image {
+    position: relative;
+
+    height: 280px;
+
+    overflow: hidden;
+}
+
+.achievement-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.achievement-card:hover img {
+    transform: scale(1.08);
+}
+
+.achievement-image span {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    padding: 8px 12px;
+
+    background: var(--gold);
+
+    color: #08090c;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.achievement-content {
+    padding: 25px;
+}
+
+.achievement-content h3 {
+    font-size: 20px;
+}
+
+.achievement-content p {
+    color: var(--gray);
+}
+
+.achievement-content strong {
+    display: block;
+
+    margin-top: 15px;
+
+    color: var(--gold);
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   RECORDS
+===================================================== */
+
+.records {
+    max-width: 1300px;
+}
+
+.records-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2px;
+
+    background: rgba(255,255,255,0.08);
+}
+
+.record {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: var(--dark-2);
+}
+
+.record strong {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.record span {
+    color: var(--gray);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   LAKERS
+===================================================== */
+
+.lakers-section {
+    max-width: 1300px;
+
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+
+    gap: 0;
+
+    padding-top: 0;
+    padding-bottom: 110px;
+}
+
+.lakers-image {
+    min-height: 500px;
+}
+
+.lakers-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.lakers-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 70px;
+
+    background: var(--dark-2);
+}
+
+.lakers-content h2 {
+    margin-top: 15px;
+
+    font-size: 55px;
+    line-height: 0.95;
+}
+
+.lakers-content h2 span {
+    display: block;
+    color: var(--gold);
+}
+
+.lakers-content p {
+    margin-top: 25px;
+
+    color: var(--gray);
+}
+
+.lakers-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 40px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.lakers-stats div {
+    padding-top: 20px;
+}
+
+.lakers-stats strong {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 25px;
+}
+
+.lakers-stats span {
+    font-size: 9px;
+    color: var(--gray);
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+
+    height: 300px;
+
+    overflow: hidden;
+}
+
+.gallery-item.large {
+    grid-row: span 2;
+    height: 615px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-caption {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 30px 20px 20px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.9)
+    );
+}
+
+.gallery-caption span {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.gallery-caption strong {
+    display: block;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   COMMUNITY
+===================================================== */
+
+.community {
+    max-width: 100%;
+
+    padding: 120px 5%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(8,9,12,0.85),
+            rgba(8,9,12,0.95)
+        ),
+        url("images/lebron-olympic.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.community-box {
+    max-width: 750px;
+    margin: auto;
+}
+
+.community h2 {
+    margin-top: 10px;
+
+    font-size: clamp(35px, 5vw, 65px);
+
+    line-height: 1;
+}
+
+.community p {
+    margin: 20px auto 30px;
+
+    color: #ccc;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 50px 5%;
+
+    text-align: center;
+
+    background: #050608;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-logo {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.footer-logo span {
+    color: var(--gold);
+}
+
+footer p {
+    margin-top: 10px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.copyright {
+    color: var(--gold);
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,0.8);
+
+    z-index: 2000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 450px;
+
+    padding: 40px;
+
+    background: var(--dark-2);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+}
+
+.modal-content h2 {
+    font-size: 30px;
+}
+
+.modal-content p {
+    color: var(--gray);
+}
+
+.close-modal {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+#joinForm {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+#joinForm input {
+    width: 100%;
+
+    padding: 15px;
+
+    background: #08090c;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    color: white;
+
+    outline: none;
+}
+
+#joinForm input:focus {
+    border-color: var(--gold);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .menu-button {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+
+        top: 75px;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+
+        padding: 25px;
+
+        background: #0b0c10;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline::before {
+        left: 25px;
+    }
+
+    .timeline-year {
+        left: 25px;
+        width: 60px;
+        height: 60px;
+
+        font-size: 13px;
+    }
+
+    .timeline-card,
+    .timeline-card.reverse {
+        direction: ltr;
+
+        grid-template-columns: 1fr;
+
+        margin-left: 60px;
+        margin-right: 0;
+    }
+
+    .timeline-image {
+        min-height: 300px;
+    }
+
+    .achievement-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .records-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lakers-section {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-item.large {
+        height: 400px;
+        grid-row: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-box strong {
+        font-size: 30px;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .timeline-card,
+    .timeline-card.reverse {
+        margin-left: 45px;
+    }
+
+    .timeline-content {
+        padding: 30px;
+    }
+
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .records-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .lakers-content {
+        padding: 40px 25px;
+    }
+
+    .lakers-content h2 {
+        font-size: 42px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item,
+    .gallery-item.large {
+        height: 300px;
+    }
+
+    .number-badge {
+        width: 75px;
+        height: 75px;
+        font-size: 24px;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+    }
+}
